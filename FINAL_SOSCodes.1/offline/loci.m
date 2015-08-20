@@ -25,9 +25,12 @@ close all
 
 % ------------------------------------------------------------------------
 % Directories
-outDir='/Users/agomez/Desktop/supplementary/datademo/experiment1/';
-dataDir=strcat(outDir,'onlineData/');
-cd(dataDir);
+outDir='/Volumes/Promise Pegasus/Manual Backup/Lab/Videos/Zebrafish/High Speed/';
+%dataDir=strcat(outDir,'onlineData/');
+%cd(dataDir);
+cd(outDir)
+files = dir('*movieonly.mat');
+fn = files(1).name;
 
 % ------------------------------------------------------------------------
 % Time resolution
@@ -45,7 +48,9 @@ correctFlag=1; % Stopping at problematic frames
 % Spatial Callibration and Landmarks
 % ------------------------------------------------------------------------
 % Load arena image
-bg=imread('firstframe.BMP');
+load(fn);
+bg = vidobj(1).cdata;
+%bg=imread('firstframe.BMP');
 
 % Manual click to determine spatial scale and stimulus reference positions:
 
@@ -66,7 +71,7 @@ plot(XN,YN,'*g')
 pause(2)
 display('If landmarks are incorrect, restart the program.')
 display('If landmarks are correct, confirm placement and continue by typing "return".')
-keyboard
+input('');
 close all
 
 D1=((X0-XW)^2+(Y0-YW)^2).^0.5;

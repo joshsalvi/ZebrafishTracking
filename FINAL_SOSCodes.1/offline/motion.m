@@ -17,7 +17,7 @@ clear
 close all
 
 % Folders
-dataDir='/Users/agomez/Desktop/supplementary/datademo/';
+dataDir='/Volumes/Promise Pegasus/Manual Backup/Lab/Videos/Zebrafish/High Speed/';
 dirStruct=dir(strcat(dataDir,'all*'));
 nDir=length(dirStruct);
 
